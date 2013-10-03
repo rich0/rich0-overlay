@@ -9,12 +9,12 @@ inherit eutils webapp
 #BACKPORTS="4f6ac2a60b"
 # Release version
 MY_PV="${PV%_p*}"
-MY_P="mythplugins-${MY_PV}"
+MY_P="mythweb-${MY_PV}"
 
 DESCRIPTION="PHP scripts intended to manage MythTV from a web browser."
 HOMEPAGE="http://www.mythtv.org"
 LICENSE="GPL-2"
-SRC_URI="ftp://ftp.osuosl.org/pub/mythtv/${MY_P}.tar.bz2
+SRC_URI="https://github.com/MythTV/mythweb/archive/v${MY_PV}.tar.gz -> mythweb-${MY_PV}.tar.gz
 	${BACKPORTS:+http://dev.gentoo.org/~cardoe/distfiles/${MY_P}-${BACKPORTS}.tar.xz}"
 IUSE=""
 KEYWORDS="~amd64 ~ppc ~x86"
@@ -30,7 +30,7 @@ DEPEND="${RDEPEND}"
 
 need_httpd_cgi
 
-S="${WORKDIR}/${MY_P}/${PN}"
+S="${WORKDIR}/${MY_P}"
 
 src_prepare() {
 	cd "${S}"/../
