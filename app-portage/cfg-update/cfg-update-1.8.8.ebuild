@@ -17,7 +17,7 @@ IUSE="X"
 RDEPEND="X? ( >=x11-misc/sux-1.0
 	x11-apps/xhost )"
 
-S="${WORKDIR}/rich0-cfg-update-9a53e97"
+S="${WORKDIR}/rich0-cfg-update-b98fa99"
 
 src_unpack() {
 	unpack ${A}
