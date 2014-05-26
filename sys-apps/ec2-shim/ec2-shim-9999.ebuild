@@ -11,7 +11,7 @@ HOMEPAGE="https://github.com/rich0/gentoo-ec2-shim"
 #SRC_URI="ftp://foo.example.org/${P}.tar.gz"
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64"
+KEYWORDS="amd64 x86"
 
 IUSE=""
 
@@ -32,3 +32,4 @@ src_install() {
   cd "${S}/image/"
   cp -R "." "${D}/" || die "Install failed!"
 }
+
