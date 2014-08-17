@@ -57,7 +57,7 @@ User=mythtv
 #StandardOutput=null
 # Default setting for Type=simple.
 #ExecStart=/usr/bin/mythbackend --logpath /var/log/mythtv --loglevel crit
-ExecStart=/usr/bin/mythbackend --loglevel notice
+ExecStart=/usr/bin/mythbackend --loglevel notice --nologserver
 
 # Whether systemd will continue over-watch and restart on any halt
 Restart=always
