@@ -22,7 +22,7 @@ KEYWORDS="~amd64 ~x86"
 MYTHPLUGINS="mytharchive mythbrowser mythgallery mythgame \
 mythmusic mythnetvision mythnews mythweather mythzoneminder"
 
-IUSE="${MYTHPLUGINS} cdda cdr exif fftw raw"
+IUSE="${MYTHPLUGINS} alsa cdda cdr exif fftw hls ieee1394 libass raw theora vorbis xml xvid"
 
 DEPEND="!media-plugins/mytharchive
 	!media-plugins/mythbrowser
@@ -33,28 +33,33 @@ DEPEND="!media-plugins/mytharchive
 	!media-plugins/mythnetvision
 	!media-plugins/mythnews
 	!media-plugins/mythweather
-	=media-tv/mythtv-${PV}*:=[python]
+	=media-tv/mythtv-${PV}*:=[alsa=,hls=,ieee1394=,libass=,python,theora=,vorbis=,xml=,xvid=]
 	dev-libs/glib:=
-	dev-libs/libxml2:=
+	xml? ( >=dev-libs/libxml2-2.6.0:= )
 	dev-qt/qtcore:=
 	dev-qt/qtgui:=
 	dev-qt/qtopengl:=
 	dev-qt/qtsql:=
 	dev-libs/openssl:=
-	media-libs/alsa-lib:=
-	media-libs/faac:=
+	alsa? ( >=media-libs/alsa-lib-1.0.24:= )
+	hls? (
+		media-libs/faac:=
+		media-libs/libvpx:=
+		>=media-libs/x264-0.0.20111220:=
+		>=media-sound/lame-3.93.1
+	)
 	media-libs/freetype:=
-	media-libs/libass:=
-	media-libs/libiec61883:=
-	media-libs/libogg:=
+	libass? ( >=media-libs/libass-0.9.11:= )
 	media-libs/libpng:=
-	media-libs/libtheora:=
-	media-libs/libvpx:=
-	media-libs/x264:=
-	media-libs/xvid:=
+	theora? ( media-libs/libtheora:= media-libs/libogg:= )
+	vorbis? ( media-libs/libogg:= )
+	xvid? ( >=media-libs/xvid-1.1.0:= )
 	virtual/libudev:=
-	sys-libs/libavc1394:=
-	sys-libs/libraw1394:=
+	ieee1394? (
+		>=sys-libs/libraw1394-1.2.0:=
+		>=sys-libs/libavc1394-0.5.3:=
+		>=media-libs/libiec61883-1.0.0:=
+	)
 	x11-libs/libX11:=
 	sys-libs/zlib:=
 	x11-libs/libXext:=
@@ -62,7 +67,6 @@ DEPEND="!media-plugins/mytharchive
 	x11-libs/libXrandr:=
 	x11-libs/libXv:=
 	x11-libs/libXxf86vm:=
-	media-sound/lame:=
 	fftw? ( sci-libs/fftw:= )
 	sys-apps/util-linux:=
 	mythzoneminder? ( virtual/mysql:= )
@@ -82,8 +86,8 @@ DEPEND="!media-plugins/mytharchive
 	)
 	mythmusic? (
 		>=media-libs/flac-1.1.2:=
-		>=media-libs/libvorbis-1.0:=
 		>=media-libs/taglib-1.6:=
+		vorbis? ( >=media-libs/libvorbis-1.0:= )
 		virtual/opengl
 		cdda? (
 			dev-libs/libcdio:=
