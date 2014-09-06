@@ -195,6 +195,8 @@ src_configure() {
 		myconf="${myconf} --enable-libfaac"
 	fi
 
+	myconf="${myconf} $(use_enable libass)"
+
 	if use perl && use python; then
 		myconf="${myconf} --with-bindings=perl,python"
 	elif use perl; then
