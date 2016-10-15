@@ -21,7 +21,21 @@ RDEPEND="sys-fs/zfs
 DOCS=( README )
 
 src_install() {
-	default
+	# default
+
+	emake DESTDIR="${D}" PREFIX="${EPREFIX}/usr/" install
+
+	if ! declare -p DOCS >/dev/null 2>&1 ; then
+		local d
+		for d in README* ChangeLog AUTHORS NEWS TODO CHANGES THANKS BUGS \
+				FAQ CREDITS CHANGELOG ; do
+			[[ -s "${d}" ]] && dodoc "${d}"
+		done
+	elif declare -p DOCS | grep -q "^declare -a " ; then
+		dodoc "${DOCS[@]}"
+	else
+		dodoc ${DOCS}
+	fi
 
 	use default-exclude && for cronfile in /etc/cron.{d,daily,hourly,monthly,weekly}/${PN} ; do
 		einfo "adjust $cronfile ..."
