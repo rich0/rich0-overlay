@@ -20,7 +20,14 @@ DEPEND=">=dev-lang/lazarus-1.6.4
 		>=dev-lang/fpc-3.0.2"
 
 RDEPEND="${DEPEND}
-		dev-db/mysql[embedded]"
+		dev-db/mysql[embedded]
+		dev-libs/atk
+		dev-libs/glib
+		x11-libs/cairo
+		x11-libs/gdk-pixbuf
+		x11-libs/gtk+
+		x11-libs/libX11
+		x11-libs/pango"
 
 #S=${WORKDIR}/${P}
 
@@ -31,4 +38,9 @@ src_prepare() {
 # fix tmpdir
 	eapply_user
 	epatch "${FILESDIR}/${PV}-makefile.patch"
+}
+
+pkg_postist() {
+	elog "This package optionally supports media-libs/hablib"
+	elog "for monitoring radio settings."
 }
