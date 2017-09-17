@@ -14,7 +14,9 @@ SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
 
-RDEPEND="media-radio/fldigi"
+RDEPEND="media-radio/fldigi
+		 x11-libs/fltk:=
+		 x11-libs/libX11:="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
