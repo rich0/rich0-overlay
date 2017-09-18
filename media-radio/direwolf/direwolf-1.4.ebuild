@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit eutils
+inherit eutils systemd
 
 DESCRIPTION="Decoded Information from Radio Emissions for Windows Or Linux Fans"
 HOMEPAGE="https://github.com/wb2osz/direwolf/blob/master/README.md"
@@ -31,4 +31,6 @@ src_install() {
 	dodir /usr/bin
 	emake DESTDIR="${D}" install
 	einstalldocs
+	systemd_dounit "${FILESDIR}"/direwolf.service
+	systemd_dounit "${FILESDIR}"/direwolf-kiss.service
 }
