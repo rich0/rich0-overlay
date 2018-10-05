@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
-inherit cmake-utils
+inherit cmake-utils 
 
 MY_P=${P/_/-}
 
@@ -34,6 +34,11 @@ RDEPEND="dev-qt/qtcore:5
 DEPEND="${RDEPEND}"
 
 S=${WORKDIR}/widefido-wsjtx-10310d18cfc1/
+
+src_prepare() {
+	eapply "${FILESDIR}/${PV}-makefile-removesymlink.patch"
+	eapply_user
+}
 
 src_configure() {
 	local mycmakeargs=(
