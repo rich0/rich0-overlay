@@ -55,7 +55,7 @@ src_compile() {
 src_install() {
 	cmake-utils_src_install
 	rm "${D}"/usr/bin/rigctl{,d}-local || die
-	rm "${D}"/usr/share/man/man1/rigctl{,d}-local.1.gz || die
+#	rm "${D}"/usr/share/man/man1/rigctl{,d}-local.1.gz || die
 	rm "${D}"/usr/share/doc/FT8Call -R || die
 
 }
