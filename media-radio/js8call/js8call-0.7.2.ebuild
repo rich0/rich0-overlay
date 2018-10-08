@@ -29,7 +29,6 @@ RDEPEND="dev-qt/qtcore:5
 	virtual/fortran
 	app-text/asciidoc
 	media-libs/hamlib
-	!media-radio/wsjtx
 	doc? ( dev-ruby/asciidoctor )"
 DEPEND="${RDEPEND}"
 
