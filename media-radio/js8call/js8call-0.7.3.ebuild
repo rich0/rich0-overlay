@@ -32,7 +32,7 @@ RDEPEND="dev-qt/qtcore:5
 	doc? ( dev-ruby/asciidoctor )"
 DEPEND="${RDEPEND}"
 
-S=${WORKDIR}/widefido-wsjtx-5275c0916f3c/
+S=${WORKDIR}/widefido-wsjtx-4168e1937c60/
 
 src_prepare() {
 	eapply "${FILESDIR}/${PV}-makefile-removesymlink.patch"
