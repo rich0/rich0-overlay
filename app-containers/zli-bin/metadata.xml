@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>rich@rich0.org</email>
+		<name>Richard Freeman</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">project-zot/zot</remote-id>
+	</upstream>
+	<longdescription lang="en">
+		zli is the command-line client for zot, a vendor-neutral OCI-native
+		container image/artifact registry. It supports listing images and
+		repos, CVE queries, config management, and search against zot servers.
+		This package installs the upstream prebuilt binary.
+	</longdescription>
+</pkgmetadata>
